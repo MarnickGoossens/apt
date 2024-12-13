@@ -1,0 +1,13 @@
+networks:
+  apt: {}
+services: # Services to deploy
+  apt-api:
+    image: apt-api
+    build:
+      dockerfile : ./api/MyWebApi/MyWebApi/Dockerfile # path to Dockerfile
+    restart: always
+    ports:
+      - "32778:8080"
+    networks:
+      - apt
+      
