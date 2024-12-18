@@ -1,13 +1,114 @@
-networks:
-  apt: {}
-services: # Services to deploy
-  apt-api:
-    image: apt-api
-    build:
-      dockerfile : ./api/MyWebApi/MyWebApi/Dockerfile # path to Dockerfile
-    restart: always
-    ports:
-      - "32778:8080"
-    networks:
-      - apt
-      
+services:
+ mongo-ticket:
+  image: mongo:latest
+  ports:
+    - 27017:27017
+  volumes:
+    - mongodb_ticket_data:/data/db
+
+ mongo-artist:
+  image: mongo:latest
+  ports:
+    - 27018:27017
+  volumes:
+    - mongodb_artist_data:/data/db
+    
+ mysql-timeslot:
+  image: mysql:latest
+  ports:
+    - 3306:3306
+  volumes:
+    - mysql_timeslot_data:/var/lib/mysql
+  environment:
+   MYSQL_ROOT_PASSWORD: abc123
+    
+ mysql-stage:
+  image: mysql:latest
+  ports:
+    - 3307:3306
+  volumes:
+    - mysql_stage_data:/var/lib/mysql
+  environment:
+   MYSQL_ROOT_PASSWORD: abc123
+    
+ artist-service:
+  depends_on:
+    - mongo-artist
+  # image: miverboven/product-service
+  build: ./artist-service
+  ports:
+    - 8080:8080
+  links:
+    - mongo-artist
+  environment:
+   MONGODB_PORT: 27017
+   MONGODB_HOST: mongo-artist
+
+ ticket-service:
+  depends_on:
+    - mongo-ticket
+  # image: miverboven/product-service
+  build: ./ticket-service
+  ports:
+    - 8084:8084
+  links:
+    - mongo-ticket
+  environment:
+    MONGODB_PORT: 27017
+    MONGODB_HOST: mongo-ticket
+   
+ stage-service:
+  depends_on:
+    - mysql-stage
+  # image: miverboven/inventory-service
+  build: stage-service/
+  ports:
+    - 8082:8082
+  links:
+    - mysql-stage
+  environment:
+   MYSQL_DB_USERNAME: root
+   MYSQL_DB_PASSWORD: abc123
+   MYSQL_DB_HOST: mysql-stage
+   MYSQL_DB_PORT: 3306
+
+ timeslot-service:
+  depends_on:
+    - stage-service
+    - artist-service
+  # image: miverboven/order-service
+  build: timeslot-service/
+  ports:
+    - 8081:8081
+  links:
+    - stage-service
+    - artist-service
+  environment:
+   STAGE_SERVICE_BASEURL: stage-service:8082
+   ARTIST_INFO_SERVICE_BASEURL: artist-service:8080
+   MYSQL_DB_USERNAME: root
+   MYSQL_DB_PASSWORD: abc123
+   MYSQL_DB_HOST: mysql-timeslot
+   MYSQL_DB_PORT: 3306
+
+ api-gateway:
+   depends_on:
+    - timeslot-service
+  #  image: miverboven/ede-api-gateway
+   build: api-gateway/
+   ports:
+     - 8083:8083
+   links:
+     - stage-service
+     - artist-service
+   environment:
+     STAGE_SERVICE_BASEURL: stage-service:8082
+     ARTIST_SERVICE_BASEURL: artist-service:8080
+     GOOGLE_CLIENTID: ${{ secrets.GOOGLE_CLIENTID  }}
+     GOOGLE_CLIENTSECRET: ${{ secrets.GOOGLE_CLIENTSECRET }}
+
+volumes:
+ mongodb_ticket_data:
+ mongodb_artist_data:
+ mysql_timeslot_data:
+ mysql_stage_data:
