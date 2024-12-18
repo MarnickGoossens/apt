@@ -9,9 +9,35 @@ logging:
     reactor.netty: TRACE
 
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENTID}
+            client-secret: ${GOOGLE_CLIENTSECRET}
+            scope: openid,profile,email
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
   cloud:
     gateway:
       routes:
+        - id: timeslot-service
+          uri: http://${TIMESLOT_SERVICE_BASEURL:localhost:8081}
+          predicates:
+            - Path=/timeslot
+            - Method=GET
+          filters:
+            - SetPath=/api/timeslot
+        - id: timeslot-service
+          uri: http://${TIMESLOT_SERVICE_BASEURL:localhost:8081}
+          predicates:
+            - Path=/timeslot
+            - Method=POST
+          filters:
+            - SetPath=/api/timeslot
         - id: stage-service
           uri: http://${STAGE_SERVICE_BASEURL:localhost:8082}
           predicates:

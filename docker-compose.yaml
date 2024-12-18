@@ -99,13 +99,13 @@ services:
    ports:
      - 8083:8083
    links:
+     - timeslot-service
      - stage-service
      - artist-service
    environment:
      STAGE_SERVICE_BASEURL: stage-service:8082
      ARTIST_SERVICE_BASEURL: artist-service:8080
-     GOOGLE_CLIENTID: ${{ secrets.GOOGLE_CLIENTID  }}
-     GOOGLE_CLIENTSECRET: ${{ secrets.GOOGLE_CLIENTSECRET }}
+     TIMESLOT_SERVICE_BASEURL: timeslot-service:8081
 
 volumes:
  mongodb_ticket_data:
