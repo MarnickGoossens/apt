@@ -34,7 +34,6 @@ services:
  artist-service:
   depends_on:
     - mongo-artist
-  # image: miverboven/product-service
   build: ./artist-service
   ports:
     - 8080:8080
@@ -47,7 +46,6 @@ services:
  ticket-service:
   depends_on:
     - mongo-ticket
-  # image: miverboven/product-service
   build: ./ticket-service
   ports:
     - 8084:8084
@@ -60,7 +58,6 @@ services:
  stage-service:
   depends_on:
     - mysql-stage
-  # image: miverboven/inventory-service
   build: stage-service/
   ports:
     - 8082:8082
@@ -76,7 +73,6 @@ services:
   depends_on:
     - stage-service
     - artist-service
-  # image: miverboven/order-service
   build: timeslot-service/
   ports:
     - 8081:8081
@@ -94,7 +90,6 @@ services:
  api-gateway:
    depends_on:
     - timeslot-service
-  #  image: miverboven/ede-api-gateway
    build: api-gateway/
    ports:
      - 8083:8083
@@ -102,9 +97,11 @@ services:
      - timeslot-service
      - stage-service
      - artist-service
+     - ticket-service
    environment:
      STAGE_SERVICE_BASEURL: stage-service:8082
      ARTIST_SERVICE_BASEURL: artist-service:8080
+     TICKET_SERVICE_BASEURL: ticket-service:8084
      TIMESLOT_SERVICE_BASEURL: timeslot-service:8081
 
 volumes:

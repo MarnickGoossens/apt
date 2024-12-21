@@ -18,14 +18,24 @@ public class StageController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<StageResponse> isRemaining
-    (@RequestParam List<String> name) {
+    public List<StageResponse> isRemaining (@RequestParam List<String> name) {
         return stageService.isRemaining(name);
+    }
+
+    @RequestMapping("/all")
+    public List<StageResponse> allStages() {
+        return stageService.allStages();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public void createStage (@RequestBody StageRequest stageRequest) {
         stageService.createStage(stageRequest);
+    }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteStage (@RequestParam String name) {
+        stageService.deleteStage(name);
     }
 }

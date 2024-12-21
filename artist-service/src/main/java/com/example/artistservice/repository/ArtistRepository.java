@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface ArtistRepository extends MongoRepository<Artist, Long> {
     List<Artist> findByNameIn(List<String> name);
+
+    void deleteArtsByName(String name);
+
+    void deleteArtistByName(String name);
 }

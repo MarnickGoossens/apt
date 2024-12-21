@@ -11,4 +11,6 @@ import java.util.List;
 @Transactional
 public interface StageRepository extends JpaRepository<Stage, Long> {
     List<Stage> findByNameIn(List<String> name);
+
+    void deleteStagesByName(String name);
 }

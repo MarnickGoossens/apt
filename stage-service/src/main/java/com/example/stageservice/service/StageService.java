@@ -45,6 +45,17 @@ public class StageService {
         ).toList();
     }
 
+    public List<StageResponse> allStages() {
+
+        return stageRepository.findAll().stream()
+                .map(stage ->
+                        StageResponse.builder()
+                                .name(stage.getName())
+                                .isRemaining(stage.isRemaining())
+                                .build()
+                ).toList();
+    }
+
     public void createStage(StageRequest stageRequest){
         Stage stage = Stage.builder()
                 .name(stageRequest.getName())
@@ -52,5 +63,9 @@ public class StageService {
                 .build();
 
         stageRepository.save(stage);
+    }
+
+    public void deleteStage(String name){
+        stageRepository.deleteStagesByName(name);
     }
 }

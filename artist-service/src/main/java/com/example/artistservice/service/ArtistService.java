@@ -5,8 +5,12 @@ import com.example.artistservice.model.Artist;
 import com.example.artistservice.repository.ArtistRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
 
@@ -54,6 +58,17 @@ public class ArtistService {
                 ).toList();
     }
 
+    public List<ArtistResponse> allArtists() {
+
+        return artistRepository.findAll().stream()
+                .map(artist ->
+                        ArtistResponse.builder()
+                                .name(artist.getName())
+                                .description(artist.getDescription())
+                                .build()
+                ).toList();
+    }
+
     public void createArtist(Artist artist){
         Artist artist1 = Artist.builder()
                 .name(artist.getName())
@@ -61,5 +76,9 @@ public class ArtistService {
                 .build();
 
         artistRepository.save(artist1);
+    }
+
+    public void deleteArtist(String name){
+        artistRepository.deleteArtistByName(name);
     }
 }
