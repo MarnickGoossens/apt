@@ -109,7 +109,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USER }}/timeslot-service:latest
   apigateway:
     runs-on: ubuntu-latest
-    name: Java 17 build, test, deliver ede-api-gateway container
+    name: Java 17 build, test, deliver api-gateway container
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
