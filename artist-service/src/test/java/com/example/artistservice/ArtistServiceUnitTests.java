@@ -82,4 +82,19 @@ public class ArtistServiceUnitTests {
         // Assert
         verify(artistRepository, times(1)).save(any(Artist.class));
     }
+
+    @Test
+    public void testDeleteStage() {
+        // Arrange
+        Artist artist = new Artist();
+        artist.setDescription("description");
+        artist.setName("Artist1");
+
+        // Act
+        artistService.createArtist(artist);
+        artistService.deleteArtist("Artist1");
+
+        // Assert
+        verify(artistRepository, times(1)).deleteArtistByName("Artist1");
+    }
 }
