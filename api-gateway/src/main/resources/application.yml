@@ -38,6 +38,14 @@ spring:
             - Method=POST
           filters:
             - SetPath=/api/timeslot
+        - id: timeslot-service-delete
+          uri: http://${TIMESLOT_SERVICE_BASEURL:localhost:8080}
+          predicates:
+            - Path=/timeslot
+            - Method=DELETE
+          filters:
+            - SetPath=/api/timeslot
+
         - id: stage-service
           uri: http://${STAGE_SERVICE_BASEURL:localhost:8082}
           predicates:
@@ -52,10 +60,39 @@ spring:
             - Method=GET
           filters:
             - SetPath=/api/stage
+        - id: stage-service-all
+          uri: http://${STAGE_SERVICE_BASEURL:localhost:8082}
+          predicates:
+            - Path=/stage/all
+            - Method=GET
+          filters:
+            - SetPath=/api/stage/all
+        - id: stage-service-delete
+          uri: http://${STAGE_SERVICE_BASEURL:localhost:8082}
+          predicates:
+            - Path=/stage
+            - Method=DELETE
+          filters:
+            - SetPath=/api/stage
+
         - id: artist-service
           uri: http://${ARTIST_SERVICE_BASEURL:localhost:8080}
           predicates:
             - Path=/artist
             - Method=GET
+          filters:
+            - SetPath=/api/artist
+        - id: artist-service-all
+          uri: http://${ARTIST_SERVICE_BASEURL:localhost:8080}
+          predicates:
+            - Path=/artist/all
+            - Method=GET
+          filters:
+            - SetPath=/api/artist/all
+        - id: artist-service-delete
+          uri: http://${ARTIST_SERVICE_BASEURL:localhost:8080}
+          predicates:
+            - Path=/artist
+            - Method=DELETE
           filters:
             - SetPath=/api/artist

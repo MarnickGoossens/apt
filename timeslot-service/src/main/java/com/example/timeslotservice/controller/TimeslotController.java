@@ -1,6 +1,7 @@
 package com.example.timeslotservice.controller;
 
 import com.example.timeslotservice.dto.TimeslotDto;
+import com.example.timeslotservice.model.Timeslot;
 import com.example.timeslotservice.service.TimeslotService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,7 @@ public class TimeslotController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<TimeslotDto> getAllTimeslots() {
+    public List<Timeslot> getAllTimeslots() {
         return timeslotService.getAllTimeslots();
     }
 
@@ -25,5 +26,11 @@ public class TimeslotController {
     public String addTimeslot(@RequestBody TimeslotDto timeslotDto) {
         boolean result = timeslotService.addTimeslot(timeslotDto);
         return (result ? "timeslot published successfully" : "timeslot placement failed");
+    }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteTimeslot (@RequestParam Long id) {
+        timeslotService.deleteTimeslot(id);
     }
 }

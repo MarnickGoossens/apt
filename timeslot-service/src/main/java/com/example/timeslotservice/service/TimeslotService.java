@@ -29,15 +29,8 @@ public class TimeslotService {
     @Value("${artistservice.baseurl}")
     private String artistServiceBaseUrl;
 
-    public List<TimeslotDto> getAllTimeslots() {
-        List<Timeslot> timeslots = timeslotRepository.findAll();
-
-        return timeslots.stream()
-                .map(timeslot -> new TimeslotDto(
-                        timeslot.getStageName(),
-                        timeslot.getArtistName()
-                ))
-                .collect(Collectors.toList());
+    public List<Timeslot> getAllTimeslots() {
+        return timeslotRepository.findAll();
     }
 
     public boolean addTimeslot(TimeslotDto timeslotDto) {
@@ -83,5 +76,9 @@ public class TimeslotService {
                 .block(); // Blokkeert tot de respons is ontvangen
 
         return response != null && response.length > 0;// Stage niet gevonden of geen response
+    }
+
+    public void deleteTimeslot(Long id){
+        timeslotRepository.deleteTimeslotById(id);
     }
 }
