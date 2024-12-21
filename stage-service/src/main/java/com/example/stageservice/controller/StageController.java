@@ -2,6 +2,7 @@ package com.example.stageservice.controller;
 
 import com.example.stageservice.dto.StageRequest;
 import com.example.stageservice.dto.StageResponse;
+import com.example.stageservice.model.Stage;
 import com.example.stageservice.service.StageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,12 @@ public class StageController {
     @ResponseStatus(HttpStatus.OK)
     public void createStage (@RequestBody StageRequest stageRequest) {
         stageService.createStage(stageRequest);
+    }
+
+    @PutMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void editStage (@RequestBody Stage stage) {
+        stageService.editStage(stage);
     }
 
     @DeleteMapping

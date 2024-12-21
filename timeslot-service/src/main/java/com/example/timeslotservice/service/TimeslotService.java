@@ -33,16 +33,16 @@ public class TimeslotService {
         return timeslotRepository.findAll();
     }
 
-    public boolean addTimeslot(TimeslotDto timeslotDto) {
+    public String addTimeslot(TimeslotDto timeslotDto) {
 
         // Controleer of de stage "remaining" is
         if (!isStageRemaining(timeslotDto.getStageName())) {
-            return false; // Stage is niet "remaining", dus voeg geen timeslot toe
+            return "stage is full"; // Stage is niet "remaining", dus voeg geen timeslot toe
         }
 
         // Controleer of de stage "remaining" is
         if (!existArtist(timeslotDto.getArtistName())) {
-            return false; // Stage is niet "remaining", dus voeg geen timeslot toe
+            return "Artist nog found"; // Stage is niet "remaining", dus voeg geen timeslot toe
         }
 
         Timeslot timeslot = new Timeslot();
@@ -50,7 +50,7 @@ public class TimeslotService {
         timeslot.setArtistName(timeslotDto.getArtistName());
 
         timeslotRepository.save(timeslot);
-        return true;
+        return "Successfully added timeslot";
     }
 
     public boolean isStageRemaining(String stageName) {

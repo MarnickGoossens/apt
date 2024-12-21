@@ -67,6 +67,13 @@ spring:
             - Method=GET
           filters:
             - SetPath=/api/stage/all
+        - id: stage-service-put
+          uri: http://${STAGE_SERVICE_BASEURL:localhost:8082}
+          predicates:
+            - Path=/stage
+            - Method=PUT
+          filters:
+            - SetPath=/api/stage
         - id: stage-service-delete
           uri: http://${STAGE_SERVICE_BASEURL:localhost:8082}
           predicates:
@@ -89,6 +96,13 @@ spring:
             - Method=GET
           filters:
             - SetPath=/api/artist/all
+        - id: artist-service-post
+          uri: http://${ARTIST_SERVICE_BASEURL:localhost:8082}
+          predicates:
+            - Path=/artist
+            - Method=POST
+          filters:
+            - SetPath=/api/artist
         - id: artist-service-delete
           uri: http://${ARTIST_SERVICE_BASEURL:localhost:8080}
           predicates:
@@ -96,3 +110,25 @@ spring:
             - Method=DELETE
           filters:
             - SetPath=/api/artist
+
+        - id: ticket-service-all
+          uri: http://${TICKET_SERVICE_BASEURL:localhost:8084}
+          predicates:
+            - Path=/ticket
+            - Method=GET
+          filters:
+            - SetPath=/api/ticket
+        - id: ticket-service-post
+          uri: http://${TICKET_SERVICE_BASEURL:localhost:8084}
+          predicates:
+            - Path=/ticket
+            - Method=POST
+          filters:
+            - SetPath=/api/ticket
+        - id: ticket-service-delete
+          uri: http://${TICKET_SERVICE_BASEURL:localhost:8084}
+          predicates:
+            - Path=/ticket
+            - Method=DELETE
+          filters:
+            - SetPath=/api/ticket

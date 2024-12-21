@@ -2,7 +2,6 @@ package com.example.artistservice.controller;
 
 import com.example.artistservice.dto.ArtistResponse;
 import com.example.artistservice.model.Artist;
-import com.example.artistservice.repository.ArtistRepository;
 import com.example.artistservice.service.ArtistService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -40,5 +39,4 @@ public class ArtistController {
     public void deleteArtist (@RequestParam String name) {
         artistService.deleteArtist(name);
     }
-
 }

@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "9ce3fe52-e7a3-42d4-bf22-2a9d3f903ea4",
+		"name": "apt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35236132"
+	},
+	"item": [
+		{
+			"name": "gateway artist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/artist?name=Adele",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"artist"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Adele"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway artist all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/artist/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"artist",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway artist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Acid\",\r\n    \"description\": \"dcdsvscscsdc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/artist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"artist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway artist",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/artist?name=Acid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"artist"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Acid"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway stage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/stage?name=Test%20Stage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"stage"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Test%20Stage"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway stage all",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/stage/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"stage",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway stage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"3de stage\",\r\n    \"remaining\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/stage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"stage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway stage",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 5,\r\n    \"name\": \"3de stage\",\r\n    \"remaining\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/stage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"stage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway stage",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/stage?name=3de stage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"stage"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "3de stage"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway timeslot all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/timeslot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"timeslot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway timeslot",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"stageName\": \"Main Stage\",\r\n    \"artistName\": \"Acid\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/timeslot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"timeslot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway timeslot",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/timeslot?id=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"timeslot"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway ticket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/ticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gateway ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"test\",\r\n    \"email\": \"test@test.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/ticket",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"ticket"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjMxYjhmY2NiMmU1MjI1M2IxMzMxMzhhY2YwZTU2NjMyZjA5OTU3ZWUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI3Nzg1NDg3MjY5MzYtZW5vbWlsaXZxMmsybWUzYmV2YzdwYW9vOWVybzBmZHEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI3Nzg1NDg3MjY5MzYtZW5vbWlsaXZxMmsybWUzYmV2YzdwYW9vOWVybzBmZHEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTI2MTgxNzU0MDk3ODY1OTc1NjUiLCJlbWFpbCI6Im1hcm5pY2suZ29vc3NlbnMuMDRAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJKM04wVjhfOVQyeGFzVWE5bldiWklnIiwibmFtZSI6Ik1hcm5pY2sgR29vc3NlbnMiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTEZZdl8tWUFhQTNoSDRFanNCT3JwaFZldGRBVXIwN1N3b0N3SjhiMUU1MTQ0VUtJYlREUT1zOTYtYyIsImdpdmVuX25hbWUiOiJNYXJuaWNrIiwiZmFtaWx5X25hbWUiOiJHb29zc2VucyIsImlhdCI6MTczNDc4NzkwOCwiZXhwIjoxNzM0NzkxNTA4fQ.WvxxA21_jzcCgKJI2sSAYhLocOnQSk8o0qqq-qNCfqvK3GDaG8VK-_3otDrzpVR2NLmbW6iQgkAVbMKjcjRFaLSQ-M6HIpof5A62Y58aziGBnuMTGaI7VJM1PwlYq5EQaiBd-WHYyIsaBmksi2ioVPcab0Re6Jr3X1r8kKFKkBYo-NAIPH7bnlJppAyJxM3lm_g3QZtRls-qf7uF8hMiTswg4u7KfqZUVCgtV2IRRVWiTkiFCCRe6qu19JCMkug_RsRKRX1Ertg6nVzw93MTAKI_pfGKyZw7ojMQXjnhsZimR1Nlj1ZUVdbfoQA58hDx6DEMygfIwrAlz5EX4P62SA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -22,7 +22,7 @@ public class TicketController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void createArtist (@RequestBody Ticket ticket) {
+    public void createTicket (@RequestBody Ticket ticket) {
         ticketService.createTicket(ticket);
     }
 }

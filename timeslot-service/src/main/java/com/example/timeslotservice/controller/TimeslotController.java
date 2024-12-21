@@ -24,8 +24,7 @@ public class TimeslotController {
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public String addTimeslot(@RequestBody TimeslotDto timeslotDto) {
-        boolean result = timeslotService.addTimeslot(timeslotDto);
-        return (result ? "timeslot published successfully" : "timeslot placement failed");
+        return timeslotService.addTimeslot(timeslotDto);
     }
 
     @DeleteMapping
