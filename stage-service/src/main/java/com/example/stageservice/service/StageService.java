@@ -65,6 +65,7 @@ public class StageService {
                 .remaining(stageRequest.isRemaining())
                 .build();
 
+        System.out.println(stage.getId());
         stageRepository.save(stage);
     }
 
