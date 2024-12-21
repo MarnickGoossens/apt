@@ -41,9 +41,6 @@ public class TimeslotService {
     }
 
     public boolean addTimeslot(TimeslotDto timeslotDto) {
-        System.out.println(timeslotDto);
-        System.out.println(stageServiceBaseUrl);
-        System.out.println(artistServiceBaseUrl);
 
         // Controleer of de stage "remaining" is
         if (!isStageRemaining(timeslotDto.getStageName())) {
