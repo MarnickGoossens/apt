@@ -1,8 +1,6 @@
 
 # Documentatie Project Advanced Programming Topics
 
-<hr>
-
 Marnick Goossens
 Sebastiaan Daniëls
 
@@ -61,10 +59,44 @@ Ten laatste kan men ook tickets opvragen of toevoegen.
 
 ## Beschrijving
 
+Centraal in het systeem staat de **API Gateway**, die dient als toegangspoort voor alle requests. De API Gateway stuurt deze requests door naar de juiste microservices en maakt gebruik van OAuth2 voor authenticatie. Hierdoor wordt ervoor gezorgd dat alleen geautoriseerde gebruikers toegang hebben tot bepaalde functionaliteiten. (Dit zijn de endpoints op het schema waar AUTH achter staat, de andere endpoints zijn voor iedereen beschikbaar).
+
+De **Artist Service** beheert de gegevens van artiesten. Via deze service kun je artiesten toevoegen, verwijderen of opvragen. Dit kan al direct na het boeken van een artiest, zonder dat ze aan een podium of tijdslot gekoppeld hoeven te zijn. De gegevens van artiesten worden opgeslagen in een MongoDB-database.
+
+Voor het beheer van podia is er de **Stage Service**. Hiermee kun je podia toevoegen, wijzigen of verwijderen. Elk podium heeft een unieke naam en wordt opgeslagen in een MySQL-database. Zodra een podium is aangemaakt, kan het later worden gekoppeld aan tijdslots met artiesten.
+
+De **Timeslot Service** brengt het inplannen van artiesten op podia. Wanneer een verzoek wordt gedaan om een artiest aan een podium en tijdslot te koppelen, controleert het systeem of de artiest daadwerkelijk geboekt is, of het podium bestaat, en of het tijdslot nog beschikbaar is. Als aan alle voorwaarden wordt voldaan, wordt de planning opgeslagen. Zo niet, dan stuurt het systeem een foutmelding terug.
+
+Tot slot is er de **Ticket Service**, waarmee tickets kunnen worden toegevoegd of opgevraagd. Dit maakt het mogelijk om overzicht te houden van de ticketverkoop, bijvoorbeeld nadat artiesten en podia aan tijdslots zijn gekoppeld. Ook deze gegevens worden opgeslagen in een MongoDB-database.
 
 # Endpoints
 
-|postman|
+> TODO: Add postman screenshots
+### **Timeslot Service**
+
+- **GET** `/timeslots` - Haal alle tijdslots op.
+- **POST** `/timeslots` (AUTH) - Voeg een nieuw tijdslot toe.
+- **DELETE** `/timeslots` (AUTH) - Verwijder een bestaand tijdslot.
+
+### **Artist Service**
+
+- **GET** `/artists/all` - Haal alle artiesten op.
+- **GET** `/artists` - Haal een specifieke artiest op met een queryparameter (bijvoorbeeld naam of ID).
+- **POST** `/artists` (AUTH) - Voeg een nieuwe artiest toe.
+- **DELETE** `/artists` (AUTH) - Verwijder een artiest.
+
+### **Stage Service**
+
+- **GET** `/stage/all` - Haal alle podia op.
+- **GET** `/stage` - Haal een specifiek podium op (op basis van naam).
+- **POST** `/stage` (AUTH) - Voeg een nieuw podium toe.
+- **PUT** `/stage` (AUTH) - Wijzig een bestaand podium.
+- **DELETE** `/stage` (AUTH) - Verwijder een podium.
+
+### **Ticket Service**
+
+- **GET** `/tickets` (AUTH) - Haal alle tickets op.
+- **POST** `/tickets` (AUTH) - Voeg een nieuw ticket toe.
 
 # Links
 
