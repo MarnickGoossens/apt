@@ -1,7 +1,7 @@
 
 # Documentatie Project Advanced Programming Topics
 
-Marnick Goossens
+Marnick Goossens<br/>
 Sebastiaan Daniëls
 
 # Abstract
@@ -100,5 +100,5 @@ Tot slot is er de **Ticket Service**, waarmee tickets kunnen worden toegevoegd o
 
 # Links
 
-**GitHub:** https://github.com/MarnickGoossens/apt
+**GitHub:** https://github.com/MarnickGoossens/apt <br/>
 **DockerHub:** ?Missing Link?
