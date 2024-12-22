@@ -29,29 +29,26 @@ services:
   volumes:
     - mysql_stage_data:/var/lib/mysql
   environment:
-    MYSQL_ROOT_PASSWORD: abc123
-  healthcheck:
-    test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-    interval: 10s
-    retries: 3
+   MYSQL_ROOT_PASSWORD: abc123
     
  artist-service:
   depends_on:
     - mongo-artist
-  image: marnick1312/artist-service:latest
+  # image: marnick1312/artist-service:latest
+  build: ./artist-service
   ports:
     - 8080:8080
   links:
     - mongo-artist
   environment:
-    MONGODB_PORT: 27018
-    MONGODB_HOST: mongo-artist
+   MONGODB_PORT: 27017
+   MONGODB_HOST: mongo-artist
 
  ticket-service:
   depends_on:
     - mongo-ticket
-  image: marnick1312/ticket-service:latest
-  # build: ./ticket-service
+  # image: marnick1312/ticket-service:latest
+  build: ./ticket-service
   ports:
     - 8084:8084
   links:
@@ -62,25 +59,25 @@ services:
    
  stage-service:
   depends_on:
-    mysql-stage:
-      condition: service_healthy
-  image: marnick1312/stage-service:latest
+    - mysql-stage
+  # image: marnick1312/stage-service:latest
+  build: stage-service/
   ports:
     - 8082:8082
   links:
     - mysql-stage
   environment:
-    MYSQL_DB_USERNAME: root
-    MYSQL_DB_PASSWORD: abc123
-    MYSQL_DB_HOST: mysql-stage
-    MYSQL_DB_PORT: 3306
+   MYSQL_DB_USERNAME: root
+   MYSQL_DB_PASSWORD: abc123
+   MYSQL_DB_HOST: mysql-stage
+   MYSQL_DB_PORT: 3306
 
  timeslot-service:
   depends_on:
     - stage-service
     - artist-service
-  image: marnick1312/timeslot-service:latest
-  # build: timeslot-service/
+  # image: marnick1312/timeslot-service:latest
+  build: timeslot-service/
   ports:
     - 8081:8081
   links:
@@ -97,7 +94,7 @@ services:
  api-gateway:
    depends_on:
     - timeslot-service
-   image: marnick1312/api-gateway:latest
+  #  image: marnick1312/api-gateway:latest
    build: api-gateway/
    ports:
      - 8083:8083
