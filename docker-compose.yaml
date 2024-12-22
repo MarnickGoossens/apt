@@ -29,20 +29,23 @@ services:
   volumes:
     - mysql_stage_data:/var/lib/mysql
   environment:
-   MYSQL_ROOT_PASSWORD: abc123
+    MYSQL_ROOT_PASSWORD: abc123
+  healthcheck:
+    test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+    interval: 10s
+    retries: 3
     
  artist-service:
   depends_on:
     - mongo-artist
   image: marnick1312/artist-service:latest
-  # build: ./artist-service
   ports:
     - 8080:8080
   links:
     - mongo-artist
   environment:
-   MONGODB_PORT: 27018
-   MONGODB_HOST: mongo-artist
+    MONGODB_PORT: 27018
+    MONGODB_HOST: mongo-artist
 
  ticket-service:
   depends_on:
@@ -59,18 +62,18 @@ services:
    
  stage-service:
   depends_on:
-    - mysql-stage
+    mysql-stage:
+      condition: service_healthy
   image: marnick1312/stage-service:latest
-  # build: stage-service/
   ports:
     - 8082:8082
   links:
     - mysql-stage
   environment:
-   MYSQL_DB_USERNAME: root
-   MYSQL_DB_PASSWORD: abc123
-   MYSQL_DB_HOST: mysql-stage
-   MYSQL_DB_PORT: 3307
+    MYSQL_DB_USERNAME: root
+    MYSQL_DB_PASSWORD: abc123
+    MYSQL_DB_HOST: mysql-stage
+    MYSQL_DB_PORT: 3306
 
  timeslot-service:
   depends_on:
