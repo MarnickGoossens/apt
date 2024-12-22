@@ -22,7 +22,7 @@ De documentatie beschrijft het gekozen thema, de architectuur van de backend en 
 We hebben gekozen om in dit project een management api te maken voor festivals.
 Als stagemanagers is het enorm belangrijk om een goed overzicht te houden van je podia. Je moet weten wie er draait, en ook wanneer die persoon draait.
 
-Je weet echter niet al deze zaken op het zelfde moment, soms weet je al dat een artiest op je festival zal draaien, maar weet je nog niet waar en wanneer. En andere keren weet je al vrij vroeg dat er een nieuw podium komt, maar je weet nog niet wie daar komt spelen.
+Je weet echter niet al deze zaken op het zelfde moment, soms weet je al dat een artiest op je festival zal draaien, maar weet je nog niet waar. En andere keren weet je al vrij vroeg dat er een nieuw podium komt, maar je weet nog niet wie daar komt spelen.
 
 Daarom kan je in ons systeem deze dingen beheren zonder dat ze van elkaar afhankelijk zijn.
 Allereerst is het mogelijk de podia te beheren. 
@@ -34,7 +34,6 @@ Wanneer je dit wel weet, kan je een request sturen om een artiest op een bepaald
 Het systeem zal daarna kijken of:
 - De artiest wel geboekt is.
 - Het podium bestaat
-- Er nog niemand op dat podium met dat tijdstip speelt
 
 Indien er aan deze drie voorwaarden voldaan wordt, zal het systeem dit opslaan. Indien dit niet het geval is, zal het systeem een error terugsturen.
 
@@ -65,7 +64,7 @@ De **Artist Service** beheert de gegevens van artiesten. Via deze service kun je
 
 Voor het beheer van podia is er de **Stage Service**. Hiermee kun je podia toevoegen, wijzigen of verwijderen. Elk podium heeft een unieke naam en wordt opgeslagen in een MySQL-database. Zodra een podium is aangemaakt, kan het later worden gekoppeld aan tijdslots met artiesten.
 
-De **Timeslot Service** brengt het inplannen van artiesten op podia. Wanneer een verzoek wordt gedaan om een artiest aan een podium en tijdslot te koppelen, controleert het systeem of de artiest daadwerkelijk geboekt is, of het podium bestaat, en of het tijdslot nog beschikbaar is. Als aan alle voorwaarden wordt voldaan, wordt de planning opgeslagen. Zo niet, dan stuurt het systeem een foutmelding terug.
+De **Timeslot Service** brengt het inplannen van artiesten op podia. Wanneer een verzoek wordt gedaan om een artiest aan een podium te koppelen, controleert het systeem of de artiest daadwerkelijk geboekt is en of het podium bestaat. Als aan beide voorwaarden wordt voldaan, wordt de planning opgeslagen. Zo niet, dan stuurt het systeem een foutmelding terug.
 
 Tot slot is er de **Ticket Service**, waarmee tickets kunnen worden toegevoegd of opgevraagd. Dit maakt het mogelijk om overzicht te houden van de ticketverkoop, bijvoorbeeld nadat artiesten en podia aan tijdslots zijn gekoppeld. Ook deze gegevens worden opgeslagen in een MongoDB-database.
 
