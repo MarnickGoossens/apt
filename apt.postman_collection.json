@@ -58,7 +58,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Acid\",\r\n    \"description\": \"dcdsvscscsdc\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Pommelien\",\r\n    \"description\": \"Bekend om erop of eronder!\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -94,7 +94,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8083/artist?name=Acid",
+					"raw": "http://localhost:8083/artist?name=The%20Weeknd",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -106,7 +106,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "Acid"
+							"value": "The%20Weeknd"
 						}
 					]
 				}
@@ -196,7 +196,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 5,\r\n    \"name\": \"3de stage\",\r\n    \"remaining\": false\r\n}",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"3de stage\",\r\n    \"remaining\": false\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -223,7 +223,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/stage?name=3de stage",
+					"raw": "http://localhost:8083/stage?name=3de%20stage",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -235,7 +235,7 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "3de stage"
+							"value": "3de%20stage"
 						}
 					]
 				}
@@ -268,7 +268,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"stageName\": \"Main Stage\",\r\n    \"artistName\": \"Acid\"\r\n}",
+					"raw": "{\r\n    \"stageName\": \"Side Stage\",\r\n    \"artistName\": \"Pommelien\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -295,7 +295,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/timeslot?id=4",
+					"raw": "http://localhost:8083/timeslot?id=7",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -307,7 +307,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "4"
+							"value": "7"
 						}
 					]
 				}
@@ -340,7 +340,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"test\",\r\n    \"email\": \"test@test.com\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Sebastiaan\",\r\n    \"email\": \"sebastiaan@test.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -367,7 +367,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjMxYjhmY2NiMmU1MjI1M2IxMzMxMzhhY2YwZTU2NjMyZjA5OTU3ZWUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI3Nzg1NDg3MjY5MzYtZW5vbWlsaXZxMmsybWUzYmV2YzdwYW9vOWVybzBmZHEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI3Nzg1NDg3MjY5MzYtZW5vbWlsaXZxMmsybWUzYmV2YzdwYW9vOWVybzBmZHEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTI2MTgxNzU0MDk3ODY1OTc1NjUiLCJlbWFpbCI6Im1hcm5pY2suZ29vc3NlbnMuMDRAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJKM04wVjhfOVQyeGFzVWE5bldiWklnIiwibmFtZSI6Ik1hcm5pY2sgR29vc3NlbnMiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTEZZdl8tWUFhQTNoSDRFanNCT3JwaFZldGRBVXIwN1N3b0N3SjhiMUU1MTQ0VUtJYlREUT1zOTYtYyIsImdpdmVuX25hbWUiOiJNYXJuaWNrIiwiZmFtaWx5X25hbWUiOiJHb29zc2VucyIsImlhdCI6MTczNDc4NzkwOCwiZXhwIjoxNzM0NzkxNTA4fQ.WvxxA21_jzcCgKJI2sSAYhLocOnQSk8o0qqq-qNCfqvK3GDaG8VK-_3otDrzpVR2NLmbW6iQgkAVbMKjcjRFaLSQ-M6HIpof5A62Y58aziGBnuMTGaI7VJM1PwlYq5EQaiBd-WHYyIsaBmksi2ioVPcab0Re6Jr3X1r8kKFKkBYo-NAIPH7bnlJppAyJxM3lm_g3QZtRls-qf7uF8hMiTswg4u7KfqZUVCgtV2IRRVWiTkiFCCRe6qu19JCMkug_RsRKRX1Ertg6nVzw93MTAKI_pfGKyZw7ojMQXjnhsZimR1Nlj1ZUVdbfoQA58hDx6DEMygfIwrAlz5EX4P62SA",
+				"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjMxYjhmY2NiMmU1MjI1M2IxMzMxMzhhY2YwZTU2NjMyZjA5OTU3ZWUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI3Nzg1NDg3MjY5MzYtZW5vbWlsaXZxMmsybWUzYmV2YzdwYW9vOWVybzBmZHEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI3Nzg1NDg3MjY5MzYtZW5vbWlsaXZxMmsybWUzYmV2YzdwYW9vOWVybzBmZHEuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTI2MTgxNzU0MDk3ODY1OTc1NjUiLCJlbWFpbCI6Im1hcm5pY2suZ29vc3NlbnMuMDRAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJUMFRzVmQ5MTNLMlNkcDg4SFBWaFJBIiwibmFtZSI6Ik1hcm5pY2sgR29vc3NlbnMiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTEZZdl8tWUFhQTNoSDRFanNCT3JwaFZldGRBVXIwN1N3b0N3SjhiMUU1MTQ0VUtJYlREUT1zOTYtYyIsImdpdmVuX25hbWUiOiJNYXJuaWNrIiwiZmFtaWx5X25hbWUiOiJHb29zc2VucyIsImlhdCI6MTczNDg5MDk1MCwiZXhwIjoxNzM0ODk0NTUwfQ.iLRpfNCnMrDqPzH4V5eirjC428reP-0Kz-wCg4AVsLQJsMVXucy8OwWRU_bTlMmLKBH58wUMTuTkUboGWVfRo9-uufbAWLoGCZaJTPSZGGu02lJzLG53WdlTtJcF5gRScAOr3ZqaE3BFzpYBNd4GrszMVEUx7xQJt8qnXMQakuhOB9VJPiGhVUsDM_FyvKb_lqseY7uA1RnUdVEI_wrEXlkp6tbs3fgRJ7m51Kk9QRYDfNPCfwxsekhPyX73qwaXPTPU0SlzosuSjJDV9ALKY5SpqGiy9C80wMVwOuFoMha8SE09FH09csfUDSf84tX3axxFva2v1xnJyZ7AhB-mZQ",
 				"type": "string"
 			}
 		]

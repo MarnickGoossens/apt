@@ -33,11 +33,11 @@ Wanneer je dit wel weet, kan je een request sturen om een artiest op een bepaald
 
 Het systeem zal daarna kijken of:
 - De artiest wel geboekt is.
-- Het podium bestaat
+- Het podium bestaat en of het nog beschikbaar is
 
-Indien er aan deze drie voorwaarden voldaan wordt, zal het systeem dit opslaan. Indien dit niet het geval is, zal het systeem een error terugsturen.
+Indien er aan deze twee voorwaarden voldaan wordt, zal het systeem dit opslaan en een succes melding geven. Indien dit niet het geval is, zal het systeem een error terugsturen.
 
-Ten laatste kan men ook tickets opvragen of toevoegen.
+Ten laatste kan men ook geregistreerde tickets opvragen of toevoegen.
 
 # Microservices en andere componenten
 ## Schema-weergave
