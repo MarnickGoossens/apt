@@ -71,31 +71,59 @@ Tot slot is er de **Ticket Service**, waarmee tickets kunnen worden toegevoegd o
 # Endpoints
 
 > TODO: Add postman screenshots
-### **Timeslot Service**
-
-- **GET** `/timeslots` - Haal alle tijdslots op.
-- **POST** `/timeslots` (AUTH) - Voeg een nieuw tijdslot toe.
-- **DELETE** `/timeslots` (AUTH) - Verwijder een bestaand tijdslot.
-
-### **Artist Service**
-
-- **GET** `/artists/all` - Haal alle artiesten op.
-- **GET** `/artists` - Haal een specifieke artiest op met een queryparameter (bijvoorbeeld naam of ID).
-- **POST** `/artists` (AUTH) - Voeg een nieuwe artiest toe.
-- **DELETE** `/artists` (AUTH) - Verwijder een artiest.
 
 ### **Stage Service**
 
 - **GET** `/stage/all` - Haal alle podia op.
+![Een Endpoint](./img/img03.png)
 - **GET** `/stage` - Haal een specifiek podium op (op basis van naam).
 - **POST** `/stage` (AUTH) - Voeg een nieuw podium toe.
+![Een Endpoint](./img/img02.png)
 - **PUT** `/stage` (AUTH) - Wijzig een bestaand podium.
+![Een Endpoint](./img/img04.png)
+![Een Endpoint](./img/img05.png)
 - **DELETE** `/stage` (AUTH) - Verwijder een podium.
+![Een Endpoint](./img/img06.png)
+![Een Endpoint](./img/img07.png)
+
+### **Artist Service**
+
+- **GET** `/artists/all` - Haal alle artiesten op.
+![Een Endpoint](./img/img12.png)
+- **GET** `/artists` - Haal een specifieke artiest op met een queryparameter (bijvoorbeeld naam of ID).
+![Een Endpoint](./img/img19.png)
+- **POST** `/artists` (AUTH) - Voeg een nieuwe artiest toe.
+![Een Endpoint](./img/img20.png)
+![Een Endpoint](./img/img21.png)
+- **DELETE** `/artists` (AUTH) - Verwijder een artiest.
+![Een Endpoint](./img/img23.png)
+![Een Endpoint](./img/img24.png)
+
+
+
+### **Timeslot Service**
+
+- **GET** `/timeslots` - Haal alle tijdslots op.
+![Een Endpoint](./img/img08.png)
+- **POST** `/timeslots` (AUTH) - Voeg een nieuw tijdslot toe.
+Hier voegen we een artiest toe die niet bestaat, we krijgen een error
+![Een Endpoint](./img/img09.png)
+Hier voegen we een bestaande artiest toe
+![Een Endpoint](./img/img10.png)
+Proberen we dit nogmaals, zien we dat het podium vol is.
+![Een Endpoint](./img/img11.png)
+![Een Endpoint](./img/img13.png)
+- **DELETE** `/timeslots` (AUTH) - Verwijder een bestaand tijdslot.
+![Een Endpoint](./img/img14.png)
+![Een Endpoint](./img/img15.png)
 
 ### **Ticket Service**
 
 - **GET** `/tickets` (AUTH) - Haal alle tickets op.
+![Een Endpoint](./img/img16.png)
 - **POST** `/tickets` (AUTH) - Voeg een nieuw ticket toe.
+![Een Endpoint](./img/img17.png)
+![Een Endpoint](./img/img18.png)
 
 # Links
 
