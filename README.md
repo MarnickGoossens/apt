@@ -77,6 +77,7 @@ Tot slot is er de **Ticket Service**, waarmee tickets kunnen worden toegevoegd o
 - **GET** `/stage/all` - Haal alle podia op.
 ![Een Endpoint](./img/img03.png)
 - **GET** `/stage` - Haal een specifiek podium op (op basis van naam).
+![Een Endpoint](./img/img26.png)
 - **POST** `/stage` (AUTH) - Voeg een nieuw podium toe.
 ![Een Endpoint](./img/img02.png)
 - **PUT** `/stage` (AUTH) - Wijzig een bestaand podium.
@@ -128,4 +129,4 @@ Proberen we dit nogmaals, zien we dat het podium vol is.
 # Links
 
 **GitHub:** https://github.com/MarnickGoossens/apt <br/>
-**DockerHub:** ?Missing Link?
+**DockerHub:** https://hub.docker.com/u/marnick1312
