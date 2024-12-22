@@ -70,8 +70,6 @@ Tot slot is er de **Ticket Service**, waarmee tickets kunnen worden toegevoegd o
 
 # Endpoints
 
-> TODO: Add postman screenshots
-
 ### **Stage Service**
 
 - **GET** `/stage/all` - Haal alle podia op.
